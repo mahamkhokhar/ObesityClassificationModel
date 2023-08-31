@@ -54,19 +54,15 @@ Dependencies include:
 
     First, preprocess your dataset by scaling or encoding as per the requirements.
 
-    \```python
-    from sklearn.preprocessing import StandardScaler
-    ...
-    \```
-
 2. **Feature Selection:**
 
-    Feature selection is done using Extra Trees Classifier.
+In this project, feature selection plays a pivotal role in improving the accuracy and efficiency of the obesity classification model. I utilized two approaches for feature selection, ensuring that the model is both robust and interpretable:
 
-    \```python
-    from sklearn.ensemble import ExtraTreesClassifier
-    ...
-    \```
+Extra Trees Classifier: Utilized as the first feature selection method, Extra Trees Classifier ranks the importance of various features. This is particularly useful for this project, as it aids in identifying the most crucial attributes related to obesity.
+
+SelectFromModel with LinearSVC: The second method I used is scikit-learn's SelectFromModel in combination with LinearSVC. After fitting a LinearSVC model to the data, SelectFromModel identifies the features that are most important according to the model and eliminates less relevant features. This focused approach streamlines the model, making it more efficient.
+
+By carefully selecting features through these methods, the resulting model is not only accurate but also utilizes data that an individual can easily self-report, such as height, weight, and FCVC (Frequency of consumption of vegetables). As such, the project serves as a valuable pre-screening self-help tool for obesity classification.
 
 3. **Model Training:**
 
@@ -75,20 +71,12 @@ Dependencies include:
     - Random Forest Classifier
     - k-Nearest Neighbors
     - Support Vector Machine (SVM)
-    
-    \```python
-    from sklearn.linear_model import LinearRegression
-    ...
-    \```
+
 
 4. **Evaluation:**
 
-    Evaluate the model using metrics such as Mean Squared Error, Mean Absolute Error, and R-squared value.
+    Evaluate the model using metrics such as Mean Squared Error, Mean Absolute Error, and R-squared value etc.
 
-    \```python
-    from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-    ...
-    \```
 
 ## Models Used
 - **Linear Regression**: R-squared value of 0.94 with all features and 0.87 with selected features.
@@ -98,7 +86,7 @@ Dependencies include:
 
 ## Results
 - Feature selection proved to be a valuable step, although performance with all features was generally better.
-- Random Forest Classifier showed the highest accuracy among all models.
+- Random Forest Classifier showed the highest accuracy among all models with all features while k-Nearest Neighbors showed highest accuracy with select features.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
